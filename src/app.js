@@ -9,6 +9,20 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
+
+
+app.get('/ass',(req,res)=>{
+
+	var ass=req.query.link;
+	request.get(ass, (err,response) => {
+		res.set({'content-type':'text/plain'});
+		res.send(response.body);
+	})
+
+	
+})
+
+
 app.post('/upload',(req,res)=>{
 	////
 //komponen ass parsing
